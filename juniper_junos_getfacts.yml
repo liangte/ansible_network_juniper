@@ -1,0 +1,13 @@
+---
+- name: Get Junos facts from vMX router
+  hosts: juniper
+  connection: local
+  gather_facts: no
+  tasks:
+    - name: gather junos_facts
+      junos_facts:
+      register: version
+
+    - debug:
+        msg: "{{version}}"
+
